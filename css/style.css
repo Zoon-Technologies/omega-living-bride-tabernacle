@@ -715,3 +715,63 @@ form textarea:focus {
 form textarea { resize: vertical; min-height: 8rem; }
 
 form button { cursor: pointer; font-family: var(--font-body); }
+
+/* ============================================================
+   Photographic hero
+   ============================================================ */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.hero-media { position: absolute; inset: 0; z-index: -2; }
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 45%;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom,
+      rgba(18,16,14,0.74) 0%,
+      rgba(18,16,14,0.40) 30%,
+      rgba(18,16,14,0.66) 66%,
+      rgba(18,16,14,0.93) 100%);
+}
+
+.hero > * { position: relative; }
+
+.hero h1 { text-shadow: 0 2px 18px rgba(18,16,14,0.6); }
+
+.hero .hero-verse,
+.hero .hero-ref,
+.hero-times { text-shadow: 0 1px 10px rgba(18,16,14,0.75); }
+
+@media (max-width: 700px) {
+  .hero { min-height: 88vh; }
+  .hero-media img { object-position: 55% 40%; }
+}
+
+/* Full-width photo band between sections */
+
+.photo-band { width: 100%; aspect-ratio: 21 / 9; overflow: hidden; }
+.photo-band img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 700px) { .photo-band { aspect-ratio: 4 / 3; } }
+
+/* Logo sizing */
+.brand img { width: 46px; height: 46px; flex-shrink: 0; }
+@media (max-width: 480px) { .brand img { width: 38px; height: 38px; } }

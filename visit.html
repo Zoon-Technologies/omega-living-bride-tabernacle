@@ -11,7 +11,9 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/img/og-image.jpg" />
 
-  <link rel="icon" href="/assets/img/favicon.png" />
+  <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="/assets/img/favicon-64.png" sizes="64x64" />
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
@@ -21,7 +23,7 @@
   <header class="site-header">
     <nav class="nav-bar" aria-label="Main navigation">
       <a class="brand" href="/">
-        <img src="/assets/img/logo.png" alt="" width="42" height="42" />
+        <img src="/assets/img/logo.png" alt="" width="46" height="46" loading="eager" />
         <span class="brand-name">Omega Living Bride<small>Tabernacle</small></span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
@@ -77,6 +79,17 @@
 
     <section class="section section-tint">
       <div class="wrap prose">
+        <div class="photo-band" style="aspect-ratio:16/10; margin-bottom:2.5rem;">
+          <picture>
+            <source type="image/webp" srcset="/assets/img/congregation-1000.webp 1000w, /assets/img/congregation-1600.webp 1600w" sizes="(max-width: 700px) 100vw, 68ch" />
+            <img src="/assets/img/congregation-1000.jpg"
+                 srcset="/assets/img/congregation-1000.jpg 1000w, /assets/img/congregation-1600.jpg 1600w"
+                 sizes="(max-width: 700px) 100vw, 68ch" loading="lazy"
+                 alt="Inside Omega Living Bride Tabernacle during a Sunday service in Warri"
+                 width="1600" height="1200" />
+          </picture>
+        </div>
+
         <h2>What happens in a service</h2>
         <p>We begin with singing and prayer. There is a time of worship, then the Word is preached &mdash; usually for an hour or more, because the teaching is the heart of what we do. We close in prayer. A Sunday service normally runs about three hours.</p>
 
