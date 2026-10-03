@@ -9,7 +9,7 @@ TIMES_BAR = """
         <span class="tb-item"><span class="tb-label">Sunday</span><span class="tb-value">9:00 AM</span></span>
         <span class="tb-item"><span class="tb-label">Wednesday</span><span class="tb-value">5:00 PM</span></span>
         <span class="tb-item"><span class="tb-label">Friday</span><span class="tb-value">5:00 PM</span></span>
-        <span class="tb-item"><span class="tb-label">Where</span><span class="tb-value"><a href="/visit.html">11 Ejoyokah Street, Effurun, Warri</a></span></span>
+        <span class="tb-item"><span class="tb-label">Where</span><span class="tb-value"><a href="/visit.html">11 Ejoyokah Street, Effurun</a></span></span>
       </div>
     </section>
 """
@@ -25,7 +25,7 @@ home = """
       <div class="hero-inner">
         <div class="hero-copy" aria-live="polite">
           <!-- Rendered by js/hero.js. Static fallback for no-JS visitors: -->
-          <p class="hero-brandline">Warri &middot; Effurun &middot; Delta State</p>
+          <p class="hero-brandline">Effurun &middot; Delta State &middot; Nigeria</p>
           <h1>Omega Living Bride Tabernacle</h1>
           <p class="hero-lede">An end-time Message assembly gathered around the Word of God. Whoever you are, you are welcome here.</p>
           <div class="hero-actions">
@@ -46,8 +46,8 @@ home = """
     <section class="section center">
       <div class="wrap">
         <p class="eyebrow">Who we are</p>
-        <h2>A Word-centred assembly in Warri</h2>
-        <p>We are a family of believers in Effurun, Warri who hold the Bible to be the complete, infallible Word of God, and who believe that God has sent a prophetic Message in this last age to restore His people to that Word and make ready a Bride for the coming of Jesus Christ.</p>
+        <h2>A Word-centred assembly in Effurun</h2>
+        <p>We are a family of believers in Effurun who hold the Bible to be the complete, infallible Word of God, and who believe that God has sent a prophetic Message in this last age to restore His people to that Word and make ready a Bride for the coming of Jesus Christ.</p>
         <p>Whether you have walked with the Lord for decades, are searching honestly for truth, or are simply curious &mdash; you are welcome here.</p>
         <a class="btn btn-outline" href="/about.html">Read what we believe</a>
       </div>
@@ -97,7 +97,7 @@ home = """
         <img src="/assets/img/worship-1000.jpg"
              srcset="/assets/img/worship-1000.jpg 1000w, /assets/img/worship-1600.jpg 1600w"
              sizes="100vw" loading="lazy"
-             alt="Believers gathered together during a service at Omega Living Bride Tabernacle, Warri"
+             alt="Believers gathered together during a service at Omega Living Bride Tabernacle, Effurun"
              width="1600" height="731" />
       </picture>
     </div>
@@ -179,14 +179,14 @@ home = """
 
             <p style="margin-top:1.5rem;"><strong>Address</strong><br />
             11 Ejoyokah Street, Opposite Praise Center, Jakpa Road<br />
-            Effurun, Warri, Delta State, Nigeria</p>
+            Effurun, Delta State, Nigeria</p>
 
             <a class="btn btn-gold" href="/visit.html">Plan your visit</a>
           </div>
 
           <div class="map-frame">
             <iframe src="%(map)s"
-                    title="Map to Omega Living Bride Tabernacle, Effurun, Warri"
+                    title="Map to Omega Living Bride Tabernacle, Effurun"
                     loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
@@ -195,8 +195,8 @@ home = """
 """ % dict(map=MAPS_EMBED)
 
 page("index.html",
-     "Omega Living Bride Tabernacle — Church in Effurun, Warri, Delta State",
-     "Omega Living Bride Tabernacle is an end-time Message assembly in Effurun, Warri, "
+     "Omega Living Bride Tabernacle — Church in Effurun, Delta State",
+     "Omega Living Bride Tabernacle is an end-time Message assembly in Effurun, "
      "Delta State, Nigeria. Sunday service 9:00 AM, midweek Wednesday and Friday 5:00 PM. "
      "Sermons, teachings and everything you need for a first visit.",
      "/", home, label="Home",

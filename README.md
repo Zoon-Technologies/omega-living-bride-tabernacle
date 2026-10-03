@@ -3,7 +3,7 @@
 Static site. HTML + CSS + vanilla JavaScript. No build step, no framework.
 Deploys to Netlify straight from GitHub.
 
-11 Ejoyokah Street, Opposite Praise Centre, Jakpa Road, Effurun, Warri, Delta State.
+11 Ejoyokah Street, Opposite Praise Centre, Jakpa Road, Effurun, Delta State.
 
 ---
 
@@ -11,11 +11,11 @@ Deploys to Netlify straight from GitHub.
 
 | To change this | Open this |
 |---|---|
+| Google Analytics ID and YouTube key | `js/config.js` |
 | Homepage banner pictures | `js/hero-slides.js` |
 | Audio sermons | `js/audio-sermons.js` |
 | Photo albums | `js/albums.js` |
-| YouTube connection | `js/youtube.js` (top of file) |
-| Menu, footer, address, analytics | `build_pages.py`, then run `python3 build_all.py` |
+| Menu, footer, address | `build_pages.py`, then run `python3 build_all.py` |
 
 Each of those files begins with plain-English instructions. Nothing else needs touching.
 
@@ -67,8 +67,8 @@ once and both themes follow.
 
 **Still missing:**
 - [ ] Church bank details for `give.html` — get these in writing
-- [ ] Google Analytics measurement ID → `GA4_ID` in `build_pages.py`
-- [ ] YouTube API key → `YT_API_KEY` in `js/youtube.js`
+- [ ] Google Analytics measurement ID → `GA4_ID` in `js/config.js`
+- [ ] YouTube API key → `YOUTUBE_API_KEY` in `js/config.js`
 - [ ] A proper office portrait of the pastor (the current photo is an interim
       crop from a preaching shot — replace `assets/img/pastor-820.jpg`)
 - [ ] A photograph of the building from outside, for the Visit page
@@ -98,6 +98,15 @@ send to `omegabridetab@outlook.com`.
 
 The fields are named Name, Email, Phone, Subject and Message, so the email
 arrives properly laid out rather than as raw code.
+
+---
+
+## A note on privacy
+
+Once Google Analytics is switched on, the site sets cookies and sends visit
+data to Google. Nigeria's data protection rules expect a site that does this
+to say so. A short privacy page covering analytics, the contact form and the
+prayer requests is worth adding before the site is promoted widely.
 
 ---
 

@@ -12,19 +12,23 @@ every page is rewritten. Page CONTENT lives in content_pages.py.
 # Site-wide settings — the only block most edits need
 # ------------------------------------------------------------------
 
-SITE_URL = "https://omegalivingbride.netlify.app"   # <- change when the .com is live
+SITE_URL = "https://omegalivingbride.com"
 SITE_NAME = "Omega Living Bride Tabernacle"
 
 EMAIL = "omegabridetab@outlook.com"
-PHONE_DISPLAY = "0704 534 8482"
+PHONE_DISPLAY = "+234 704 534 8482"
 PHONE_E164 = "+2347045348482"
 WHATSAPP = "https://wa.me/2347045348482"
 
 STREET = "11 Ejoyokah Street, Opposite Praise Center, Jakpa Road"
 TOWN = "Effurun"
-CITY = "Warri"
+CITY = "Effurun"   # same as TOWN since the address is simply Effurun
 REGION = "Delta State"
 COUNTRY = "Nigeria"
+
+# What Google is told about the area the church serves. This is reach, not the
+# postal address — the address shown to visitors is Effurun everywhere.
+AREA_SERVED = "Effurun and the greater Warri area, Delta State, Nigeria"
 
 MAPS_LINK = "https://maps.app.goo.gl/XYi2mtmWdiXzW3t3A"
 MAPS_EMBED = (
@@ -39,9 +43,8 @@ TIKTOK = "https://www.tiktok.com/@omegalivingbride?_r=1&_t=ZS-99py7WfCYy7"
 
 PASTOR = "Pastor Timothy Awowede"
 
-# Google Analytics 4 — paste the measurement ID here (looks like G-ABC123XYZ).
-# While it is left blank no tracking code is written into the pages at all.
-GA4_ID = ""
+# Google Analytics and the YouTube key now live in js/config.js, so they can
+# be changed without rebuilding. Nothing to set here.
 
 SERVICES = [
     ("Sunday service",  "Sunday",    "09:00", "12:30", "9:00 AM – 12:30 PM"),
@@ -71,50 +74,63 @@ FONTS = ("https://fonts.googleapis.com/css2?"
 # Structured data for Google (schema.org)
 # ------------------------------------------------------------------
 
+import json as _json
+
+
 def _hours():
-    rows = []
-    for _, day, opens, closes, _ in SERVICES:
-        rows.append(
-            '{"@type":"OpeningHoursSpecification","dayOfWeek":"https://schema.org/%s",'
-            '"opens":"%s","closes":"%s"}' % (day, opens, closes)
-        )
-    return ",".join(rows)
+    return [
+        {"@type": "OpeningHoursSpecification",
+         "dayOfWeek": "https://schema.org/" + day,
+         "opens": opens, "closes": closes}
+        for _, day, opens, closes, _ in SERVICES
+    ]
 
 
 def schema_church():
-    return (
-        '{"@context":"https://schema.org","@type":"Church",'
-        '"@id":"%(url)s/#church",'
-        '"name":"%(name)s",'
-        '"url":"%(url)s/",'
-        '"logo":"%(url)s/assets/img/logo-dark.png",'
-        '"image":"%(url)s/assets/img/og-image.jpg",'
-        '"email":"%(email)s",'
-        '"telephone":"%(phone)s",'
-        '"description":"An end-time Message assembly in Effurun, Warri, Delta State, Nigeria, '
-        'holding the Bible as the complete Word of God.",'
-        '"address":{"@type":"PostalAddress","streetAddress":"%(street)s",'
-        '"addressLocality":"%(town)s","addressRegion":"%(region)s","addressCountry":"NG"},'
-        '"areaServed":"Warri, Delta State, Nigeria",'
-        '"hasMap":"%(map)s",'
-        '"sameAs":["%(yt)s","%(fb)s","%(tt)s"],'
-        '"openingHoursSpecification":[%(hours)s],'
-        '"employee":{"@type":"Person","name":"Timothy Awowede","jobTitle":"Pastor"}}'
-        % dict(url=SITE_URL, name=SITE_NAME, email=EMAIL, phone=PHONE_E164,
-               street=STREET, town=TOWN, region=REGION, map=MAPS_LINK,
-               yt=YOUTUBE, fb=FACEBOOK, tt=TIKTOK, hours=_hours())
-    )
+    """Tells Google what this organisation is, where it is and when it meets."""
+    return _json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Church",
+        "@id": SITE_URL + "/#church",
+        "name": SITE_NAME,
+        "url": SITE_URL + "/",
+        "logo": SITE_URL + "/assets/img/logo-dark.png",
+        "image": SITE_URL + "/assets/img/og-image.jpg",
+        "email": EMAIL,
+        "telephone": PHONE_E164,
+        "description": ("An end-time Message assembly in Effurun, Delta State, Nigeria, "
+                        "holding the Bible as the complete Word of God."),
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": STREET,
+            "addressLocality": TOWN,
+            "addressRegion": REGION,
+            "addressCountry": "NG",
+        },
+        # The area the church actually serves. Effurun adjoins Warri and the
+        # congregation is drawn from across the metropolitan area, so this is a
+        # true statement of reach. It is NOT the postal address, which stays
+        # Effurun everywhere it is shown to visitors.
+        "areaServed": AREA_SERVED,
+        "hasMap": MAPS_LINK,
+        "sameAs": [YOUTUBE, FACEBOOK, TIKTOK],
+        "openingHoursSpecification": _hours(),
+        "employee": {"@type": "Person", "name": "Timothy Awowede", "jobTitle": "Pastor"},
+    }, indent=2, ensure_ascii=False)
 
 
 def schema_breadcrumb(path, label):
+    """Shows Google the trail Home > This page, for the search result."""
     if path == "/":
         return ""
-    return (
-        '{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":['
-        '{"@type":"ListItem","position":1,"name":"Home","item":"%s/"},'
-        '{"@type":"ListItem","position":2,"name":"%s","item":"%s%s"}]}'
-        % (SITE_URL, label, SITE_URL, path)
-    )
+    return _json.dumps({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/"},
+            {"@type": "ListItem", "position": 2, "name": label, "item": SITE_URL + path},
+        ],
+    }, indent=2, ensure_ascii=False)
 
 
 # ------------------------------------------------------------------
@@ -129,17 +145,6 @@ THEME_BOOT = (
 )
 
 
-def analytics():
-    if not GA4_ID:
-        return ""
-    return (
-        '\n  <script async src="https://www.googletagmanager.com/gtag/js?id=%s"></script>\n'
-        "  <script>window.dataLayer=window.dataLayer||[];"
-        "function gtag(){dataLayer.push(arguments);}gtag('js',new Date());"
-        "gtag('config','%s');</script>" % (GA4_ID, GA4_ID)
-    )
-
-
 def head(title, desc, path, label, extra_schema=""):
     canonical = SITE_URL + ("/" if path == "/" else path)
     crumbs = schema_breadcrumb(path, label)
@@ -148,8 +153,13 @@ def head(title, desc, path, label, extra_schema=""):
         blocks.append(crumbs)
     if extra_schema:
         blocks.append(extra_schema)
-    ld = "\n".join(
-        '  <script type="application/ld+json">%s</script>' % b for b in blocks
+    labels = ["Church — who we are, where, and when we meet",
+              "Breadcrumb — the trail shown under the search result",
+              "Page-specific"]
+    ld = "\n\n".join(
+        '  <!-- SCHEMA %d of %d: %s -->\n  <script type="application/ld+json">\n%s\n  </script>'
+        % (i + 1, len(blocks), labels[i] if i < len(labels) else "Extra", b)
+        for i, b in enumerate(blocks)
     )
 
     return """<!DOCTYPE html>
@@ -157,10 +167,16 @@ def head(title, desc, path, label, extra_schema=""):
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- ============================================================
+       SEO — page title, Google search snippet, and the one true
+       address of this page. Edit these in the content_*.py files.
+       ============================================================ -->
   <title>%(title)s</title>
   <meta name="description" content="%(desc)s" />
   <link rel="canonical" href="%(canonical)s" />
 
+  <!-- SOCIAL SHARING — what appears when the link is pasted into
+       WhatsApp, Facebook or X. Image is assets/img/og-image.jpg -->
   <meta property="og:site_name" content="%(site)s" />
   <meta property="og:title" content="%(title)s" />
   <meta property="og:description" content="%(desc)s" />
@@ -172,17 +188,30 @@ def head(title, desc, path, label, extra_schema=""):
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#12100E" />
 
+  <!-- ICONS — browser tab and phone home screen -->
   <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" />
   <link rel="icon" href="/assets/img/favicon-64.png" sizes="64x64" />
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
 
+  <!-- FONTS + STYLES -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="%(fonts)s" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 
+  <!-- THEME — sets light or dark before the page paints, so there is
+       no flash of the wrong colours. -->
   %(theme)s
-%(ld)s%(ga)s
+
+  <!-- ============================================================
+       GOOGLE ANALYTICS + YOUTUBE
+       The measurement ID and the YouTube key live in js/config.js.
+       That file loads the Google tag (gtag.js) for you — there is no
+       separate Google snippet pasted into these pages, and nothing
+       here to edit. Change the keys in js/config.js only.
+       ============================================================ -->
+  <script src="/js/config.js"></script>
+%(ld)s
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -190,7 +219,7 @@ def head(title, desc, path, label, extra_schema=""):
 <main id="main">
 """ % dict(title=title, desc=desc, canonical=canonical, site=SITE_NAME,
            url=SITE_URL, fonts=FONTS, theme=THEME_BOOT, ld=ld,
-           ga=analytics(), header=header(path))
+           header=header(path))
 
 
 # ------------------------------------------------------------------
@@ -261,7 +290,7 @@ def footer(scripts=""):
         <h4>%(site)s</h4>
         <ul>
           <li>%(street)s</li>
-          <li>%(town)s, %(city)s, %(region)s, %(country)s</li>
+          <li>%(town)s, %(region)s, %(country)s</li>
           <li><a href="tel:%(phone_e164)s">%(phone)s</a></li>
           <li><a href="mailto:%(email)s">%(email)s</a></li>
         </ul>

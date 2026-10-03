@@ -9,7 +9,7 @@ visit = """
     <section class="page-hero">
       <p class="eyebrow">Plan your visit</p>
       <h1>Your first time with us</h1>
-      <p>Everything you need to know before you walk through the door in Effurun, Warri &mdash; no surprises.</p>
+      <p>Everything you need to know before you walk through the door in Effurun &mdash; no surprises.</p>
     </section>
 
     <section class="section">
@@ -25,7 +25,7 @@ visit = """
 
             <h2 style="margin-top:2.5rem;">Where to find us</h2>
             <p>11 Ejoyokah Street, Opposite Praise Centre, Jakpa Road<br />
-               Effurun, Warri, Delta State<br />Nigeria</p>
+               Effurun, Delta State<br />Nigeria</p>
             <p><a href="tel:%(phone_e164)s">%(phone)s</a></p>
             <p>
               <a class="btn btn-gold" href="%(maps)s" rel="noopener">Get directions</a>
@@ -35,7 +35,7 @@ visit = """
 
           <div class="map-frame">
             <iframe src="%(map)s"
-                    title="Map to Omega Living Bride Tabernacle, Effurun, Warri"
+                    title="Map to Omega Living Bride Tabernacle, Effurun"
                     loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
@@ -52,7 +52,7 @@ visit = """
             <img src="/assets/img/congregation-1000.jpg"
                  srcset="/assets/img/congregation-1000.jpg 1000w, /assets/img/congregation-1600.jpg 1600w"
                  sizes="(max-width: 700px) 100vw, 68ch" loading="lazy"
-                 alt="Inside Omega Living Bride Tabernacle during a Sunday service in Effurun, Warri"
+                 alt="Inside Omega Living Bride Tabernacle during a Sunday service in Effurun"
                  width="1600" height="1200" />
           </picture>
         </div>
@@ -93,9 +93,9 @@ visit = """
 """ % dict(map=MAPS_EMBED, maps=MAPS_LINK, wa=WHATSAPP, phone=PHONE_DISPLAY, phone_e164=PHONE_E164)
 
 page("visit.html",
-     "Plan Your Visit — Omega Living Bride Tabernacle, Effurun, Warri",
+     "Plan Your Visit — Omega Living Bride Tabernacle, Effurun",
      "Service times, address and what to expect on your first visit to Omega Living Bride "
-     "Tabernacle, 11 Ejoyokah Street, Effurun, Warri, Delta State. Sunday 9:00 AM.",
+     "Tabernacle, 11 Ejoyokah Street, Effurun, Delta State. Sunday 9:00 AM.",
      "/visit.html", visit, label="Visit")
 
 
@@ -105,7 +105,7 @@ sermons = """
     <section class="page-hero">
       <p class="eyebrow">The Word</p>
       <h1>Sermons</h1>
-      <p>Messages preached at Omega Living Bride Tabernacle in Effurun, Warri &mdash; archived so you can hear the Word wherever you are.</p>
+      <p>Messages preached at Omega Living Bride Tabernacle in Effurun &mdash; archived so you can hear the Word wherever you are.</p>
     </section>
 
     <section class="section section-dark on-dark center">
@@ -139,8 +139,8 @@ sermons = """
 """ % dict(yt=YOUTUBE)
 
 page("sermons.html",
-     "Sermons — Omega Living Bride Tabernacle, Effurun, Warri",
-     "Sermon archive from Omega Living Bride Tabernacle, Effurun, Warri. Messages on the "
+     "Sermons — Omega Living Bride Tabernacle, Effurun",
+     "Sermon archive from Omega Living Bride Tabernacle, Effurun. Messages on the "
      "Seven Seals, the Seven Church Ages, Revelation and the end-time Message.",
      "/sermons.html", sermons, label="Sermons",
      scripts='  <script src="/js/youtube.js"></script>')
@@ -174,9 +174,9 @@ audio = """
 """
 
 page("audio.html",
-     "Audio Sermons — Omega Living Bride Tabernacle, Effurun, Warri",
+     "Audio Sermons — Omega Living Bride Tabernacle, Effurun",
      "Listen to or download audio sermons from Omega Living Bride Tabernacle, Effurun, "
-     "Warri, Delta State. Messages on Revelation, the Seven Seals and the end-time Message.",
+     "Effurun, Delta State. Messages on Revelation, the Seven Seals and the end-time Message.",
      "/audio.html", audio, label="Audio sermons",
      scripts='  <script src="/js/audio-sermons.js"></script>')
 
@@ -187,7 +187,7 @@ albums = """
     <section class="page-hero">
       <p class="eyebrow">Our life together</p>
       <h1>Photo albums</h1>
-      <p>Conferences, services and gatherings at Omega Living Bride Tabernacle, Effurun, Warri.</p>
+      <p>Conferences, services and gatherings at Omega Living Bride Tabernacle, Effurun.</p>
     </section>
 
     <section class="section">
@@ -204,9 +204,9 @@ albums = """
 """
 
 page("albums.html",
-     "Photo Albums — Omega Living Bride Tabernacle, Effurun, Warri",
+     "Photo Albums — Omega Living Bride Tabernacle, Effurun",
      "Photographs from conferences, services and gatherings at Omega Living Bride "
-     "Tabernacle, Effurun, Warri, Delta State.",
+     "Tabernacle, Effurun, Delta State.",
      "/albums.html", albums, label="Photo albums",
      scripts='  <script src="/js/albums.js"></script>')
 
@@ -217,7 +217,7 @@ contact = """
     <section class="page-hero">
       <p class="eyebrow">Get in touch</p>
       <h1>Contact us</h1>
-      <p>Write to us with a question, a prayer request, or to ask about visiting the Tabernacle in Effurun, Warri.</p>
+      <p>Write to us with a question, a prayer request, or to ask about visiting the Tabernacle in Effurun.</p>
     </section>
 
     <section class="section">
@@ -298,7 +298,7 @@ contact = """
               <li>
                 <h3>Visit us in Effurun</h3>
                 <p>11 Ejoyokah Street, Opposite Praise Centre, Jakpa Road<br />
-                   Effurun, Warri, Delta State, Nigeria</p>
+                   Effurun, Delta State, Nigeria</p>
                 <p><a href="/visit.html">See service times and what to expect</a></p>
               </li>
               <li>
@@ -337,8 +337,8 @@ contact = """
 """ % dict(email=EMAIL, wa=WHATSAPP, yt=YOUTUBE, phone=PHONE_DISPLAY, phone_e164=PHONE_E164)
 
 page("contact.html",
-     "Contact — Omega Living Bride Tabernacle, Effurun, Warri",
-     "Contact Omega Living Bride Tabernacle in Effurun, Warri, Delta State. Send a prayer "
+     "Contact — Omega Living Bride Tabernacle, Effurun",
+     "Contact Omega Living Bride Tabernacle in Effurun, Delta State. Send a prayer "
      "request, ask a question about the Bible, or plan your visit.",
      "/contact.html", contact, label="Contact")
 
@@ -368,14 +368,14 @@ thanks = """
         <p class="eyebrow">While you are here</p>
         <h2>Come and worship with us</h2>
         <p>Sunday 9:00 AM &middot; Wednesday and Friday 5:00 PM<br />
-           11 Ejoyokah Street, Opposite Praise Centre, Jakpa Road, Effurun, Warri</p>
+           11 Ejoyokah Street, Opposite Praise Centre, Jakpa Road, Effurun</p>
         <p><a class="btn btn-outline" href="/visit.html">Plan your visit</a></p>
       </div>
     </section>
 """ % dict(wa=WHATSAPP)
 
 page("thank-you.html", "Message sent — Omega Living Bride Tabernacle",
-     "Your message has been sent to Omega Living Bride Tabernacle, Effurun, Warri.",
+     "Your message has been sent to Omega Living Bride Tabernacle, Effurun.",
      "/thank-you.html", thanks, label="Message sent")
 
 

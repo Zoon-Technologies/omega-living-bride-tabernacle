@@ -9,14 +9,14 @@ about = """
     <section class="page-hero">
       <p class="eyebrow">About us</p>
       <h1>Who we are</h1>
-      <p>An end-time Message assembly in Effurun, Warri, Delta State &mdash; gathered around the Word of God.</p>
+      <p>An end-time Message assembly in Effurun, Delta State &mdash; gathered around the Word of God.</p>
     </section>
 
     <section class="section">
       <div class="wrap prose">
 
         <h2>In plain words</h2>
-        <p>Omega Living Bride Tabernacle is a church in Effurun, Warri. We meet on Sundays and midweek to pray, to sing, and above all to hear the Bible taught.</p>
+        <p>Omega Living Bride Tabernacle is a church in Effurun. We meet on Sundays and midweek to pray, to sing, and above all to hear the Bible taught.</p>
         <p>We believe the Bible is the complete and infallible Word of God. We believe that God has always sent prophets to call His people back to that Word, and that in this last age He sent such a ministry through William Marrion Branham &mdash; not to add to Scripture, but to open it, and to make ready a people prepared for the return of Jesus Christ.</p>
         <p>If that is unfamiliar to you, you are still welcome. You do not have to agree with us to sit with us. Come, listen, and search the Scriptures for yourself.</p>
 
@@ -48,7 +48,7 @@ about = """
           <picture>
             <source type="image/webp" srcset="/assets/img/pastor-820.webp" />
             <img src="/assets/img/pastor-820.jpg"
-                 alt="Pastor Timothy Awowede preaching at Omega Living Bride Tabernacle, Effurun, Warri"
+                 alt="Pastor Timothy Awowede preaching at Omega Living Bride Tabernacle, Effurun"
                  width="820" height="1026" loading="lazy" />
           </picture>
         </div>
@@ -73,8 +73,8 @@ about = """
 """
 
 page("about.html",
-     "About — Omega Living Bride Tabernacle, Effurun, Warri",
-     "Who we are and what we believe. An end-time Message assembly in Effurun, Warri, "
+     "About — Omega Living Bride Tabernacle, Effurun",
+     "Who we are and what we believe. An end-time Message assembly in Effurun, "
      "Delta State, Nigeria, pastored by Timothy Awowede. All are welcome.",
      "/about.html", about, label="About")
 
@@ -85,7 +85,7 @@ give = """
     <section class="page-hero">
       <p class="eyebrow">Giving</p>
       <h1>Give</h1>
-      <p>Supporting the work of the Lord at Omega Living Bride Tabernacle, Effurun, Warri.</p>
+      <p>Supporting the work of the Lord at Omega Living Bride Tabernacle, Effurun.</p>
     </section>
 
     <section class="section">
@@ -115,8 +115,8 @@ give = """
 """
 
 page("give.html",
-     "Give — Omega Living Bride Tabernacle, Effurun, Warri",
-     "Supporting the work of Omega Living Bride Tabernacle in Effurun, Warri, Delta State. "
+     "Give — Omega Living Bride Tabernacle, Effurun",
+     "Supporting the work of Omega Living Bride Tabernacle in Effurun, Delta State. "
      "Bank transfer details and giving information.",
      "/give.html", give, label="Give")
 
@@ -172,7 +172,7 @@ teachings = """
 """ % cards
 
 page("teachings.html",
-     "Teachings — Omega Living Bride Tabernacle, Effurun, Warri",
+     "Teachings — Omega Living Bride Tabernacle, Effurun",
      "Bible teachings and answers to difficult questions: the Seven Seals, the Seven Church "
      "Ages, the Seven Thunders of Revelation 10, and more.",
      "/teachings.html", teachings, label="Teachings")
@@ -255,7 +255,7 @@ for slug, title, cat, blurb in TOPICS:
 """ % (cat, title, BODIES.get(slug, GENERIC))
 
     page("teachings/%s.html" % slug,
-         "%s — Omega Living Bride Tabernacle, Warri" % title,
-         "%s A Bible teaching from Omega Living Bride Tabernacle, Effurun, Warri, Delta State."
+         "%s — Omega Living Bride Tabernacle, Effurun" % title,
+         "%s A Bible teaching from Omega Living Bride Tabernacle, Effurun, Delta State."
          % blurb,
          "/teachings/%s.html" % slug, body, label=title)

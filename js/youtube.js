@@ -10,7 +10,7 @@
    3. Menu -> APIs & Services -> Library -> search "YouTube Data API v3"
       -> Enable
    4. Menu -> APIs & Services -> Credentials -> Create credentials
-      -> API key. Copy it into YT_API_KEY below.
+      -> API key. Copy it into YOUTUBE_API_KEY in js/config.js
    5. On that same key click "Edit", then under
       "Application restrictions" choose "Websites" and add:
           https://omegalivingbride.netlify.app/*
@@ -21,9 +21,12 @@
    The free allowance is 10,000 units a day. Each page view costs 1.
    ============================================================ */
 
-var YT_API_KEY = "";                                   // <-- paste the key here
-var YT_CHANNEL_ID = "UClKBeXx4kDf8QKllZlFo-hg";        // Omega Living Bride Tabernacle
-var YT_CHANNEL_URL = "https://youtube.com/@omegalivingbridetabernacle";
+/*  THE KEY ITSELF LIVES IN  js/config.js  — put it there, not here.  */
+
+var _cfg = window.OLBT_CONFIG || {};
+var YT_API_KEY = (_cfg.YOUTUBE_API_KEY || "").trim();
+var YT_CHANNEL_ID = _cfg.YOUTUBE_CHANNEL_ID || "UClKBeXx4kDf8QKllZlFo-hg";
+var YT_CHANNEL_URL = _cfg.YOUTUBE_CHANNEL_URL || "https://youtube.com/@omegalivingbridetabernacle";
 
 /* ---------------- nothing below needs editing ---------------- */
 
@@ -83,6 +86,7 @@ var YT_CHANNEL_URL = "https://youtube.com/@omegalivingbridetabernacle";
 
     pending = fetch(url)
       .then(function (r) {
+        if (r.status === 403) throw new Error("key-rejected");
         if (!r.ok) throw new Error("http-" + r.status);
         return r.json();
       })
@@ -215,6 +219,8 @@ var YT_CHANNEL_URL = "https://youtube.com/@omegalivingbridetabernacle";
       .catch(function (err) {
         if (err && err.message === "no-key") {
           fallback("The sermon feed is not connected yet.");
+        } else if (err && err.message === "key-rejected") {
+          fallback("The YouTube key was refused \u2014 check its website restrictions.");
         } else {
           fallback("The sermon feed could not be loaded just now.");
         }

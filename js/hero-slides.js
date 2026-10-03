@@ -43,7 +43,7 @@ const HERO_SLIDES = [
     imgSmall: "/assets/img/slide-preaching-800.jpg",
     fit: "cover",
     alt: "Pastor Timothy Awowede preaching from the pulpit at Omega Living Bride Tabernacle, Effurun",
-    eyebrow: "Warri · Effurun · Delta State",
+    eyebrow: "Effurun · Delta State · Nigeria",
     title: "Omega Living Bride Tabernacle",
     text: "An end-time Message assembly gathered around the Word of God. Whoever you are, you are welcome here.",
     ctaLabel: "Plan your visit",
