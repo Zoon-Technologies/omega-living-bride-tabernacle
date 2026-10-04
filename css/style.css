@@ -1339,3 +1339,30 @@ a.item-thumb:hover .play-badge::before {
 a.item-thumb { display: block; cursor: pointer; }
 a.item-thumb img { transition: transform 400ms ease; }
 a.item-thumb:hover img { transform: scale(1.04); }
+
+/* ---------- 29. Back to the latest sermon ---------- */
+
+.video-caption .vc-flag {
+  color: var(--accent-anchor);
+  font-weight: 600;
+}
+
+.back-to-latest {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+  padding: 0.55rem 1.1rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--c-parchment);
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.back-to-latest:hover { background: var(--accent); color: var(--c-ink); }

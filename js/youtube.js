@@ -130,9 +130,19 @@ var YT_CHANNEL_URL = _cfg.YOUTUBE_CHANNEL_URL || "https://youtube.com/@omegalivi
 
     var cap = document.getElementById("latest-caption");
     if (cap) {
+      // Offer a way back whenever an older message is showing.
+      var newest = VIDEOS && VIDEOS.length ? VIDEOS[0] : null;
+      var back = (newest && newest.id !== v.id)
+        ? '<button type="button" class="back-to-latest" data-video-id="' +
+          esc(newest.id) + '">&#8630; Back to the latest sermon</button>'
+        : "";
+
       cap.innerHTML =
-        '<p class="vc-date">' + esc(niceDate(v.date)) + "</p>" +
-        '<p class="vc-title">' + esc(v.title) + "</p>";
+        '<p class="vc-date">' + esc(niceDate(v.date)) +
+        (newest && newest.id === v.id ? ' &middot; <span class="vc-flag">Latest</span>' : "") +
+        "</p>" +
+        '<p class="vc-title">' + esc(v.title) + "</p>" +
+        back;
     }
 
     // Mark whichever card is playing
