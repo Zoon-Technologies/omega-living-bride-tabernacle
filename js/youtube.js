@@ -119,12 +119,13 @@ var YT_CHANNEL_URL = _cfg.YOUTUBE_CHANNEL_URL || "https://youtube.com/@omegalivi
 
   /* ---------- Renderers ---------- */
 
-  function renderLatest(box, v) {
+  function renderLatest(box, v, autoplay) {
     box.classList.remove("is-skeleton");
     box.innerHTML =
-      '<iframe src="https://www.youtube-nocookie.com/embed/' + esc(v.id) + '?rel=0"' +
-      ' title="' + esc(v.title) + '" loading="lazy"' +
-      ' allow="accelerometer; encrypted-media; picture-in-picture; web-share"' +
+      '<iframe src="https://www.youtube-nocookie.com/embed/' + esc(v.id) +
+      "?rel=0&modestbranding=1" + (autoplay ? "&autoplay=1" : "") + '"' +
+      ' title="' + esc(v.title) + '"' + (autoplay ? "" : ' loading="lazy"') +
+      ' allow="accelerometer; autoplay; encrypted-media; picture-in-picture; web-share"' +
       " allowfullscreen></iframe>";
 
     var cap = document.getElementById("latest-caption");
@@ -133,12 +134,17 @@ var YT_CHANNEL_URL = _cfg.YOUTUBE_CHANNEL_URL || "https://youtube.com/@omegalivi
         '<p class="vc-date">' + esc(niceDate(v.date)) + "</p>" +
         '<p class="vc-title">' + esc(v.title) + "</p>";
     }
+
+    // Mark whichever card is playing
+    document.querySelectorAll("[data-video-id]").forEach(function (el) {
+      el.classList.toggle("is-playing", el.getAttribute("data-video-id") === v.id);
+    });
   }
 
   function railCard(v) {
     return (
-      '<a class="rail-card" href="https://www.youtube.com/watch?v=' + esc(v.id) +
-      '" rel="noopener" target="_blank">' +
+      '<a class="rail-card" data-video-id="' + esc(v.id) + '"' +
+      ' href="https://www.youtube.com/watch?v=' + esc(v.id) + '" rel="noopener">' +
       '<span class="rail-thumb"><img src="' + esc(v.thumb) + '" alt="" loading="lazy" ' +
       'width="480" height="270" /></span>' +
       '<span class="rail-body">' +
@@ -151,13 +157,16 @@ var YT_CHANNEL_URL = _cfg.YOUTUBE_CHANNEL_URL || "https://youtube.com/@omegalivi
   function gridCard(v) {
     return (
       '<article class="item">' +
-      '<div class="item-thumb"><img src="' + esc(v.thumb) + '" alt="" loading="lazy" ' +
-      'width="480" height="270" /></div>' +
+      '<a class="item-thumb" data-video-id="' + esc(v.id) + '"' +
+      ' href="https://www.youtube.com/watch?v=' + esc(v.id) + '" rel="noopener"' +
+      ' aria-label="Play: ' + esc(v.title) + '">' +
+      '<img src="' + esc(v.thumb) + '" alt="" loading="lazy" width="480" height="270" />' +
+      '<span class="play-badge" aria-hidden="true"></span></a>' +
       '<div class="item-body">' +
       '<p class="item-meta">' + esc(niceDate(v.date)) + "</p>" +
       "<h3>" + esc(v.title) + "</h3>" +
-      '<a class="item-link" href="https://www.youtube.com/watch?v=' + esc(v.id) +
-      '" rel="noopener" target="_blank">Watch</a>' +
+      '<a class="item-link" data-video-id="' + esc(v.id) + '"' +
+      ' href="https://www.youtube.com/watch?v=' + esc(v.id) + '" rel="noopener">Play here</a>' +
       "</div></article>"
     );
   }
@@ -185,6 +194,36 @@ var YT_CHANNEL_URL = _cfg.YOUTUBE_CHANNEL_URL || "https://youtube.com/@omegalivi
     }
   }
 
+  var VIDEOS = [];
+
+  function wireClickToPlay() {
+    var player = document.getElementById("latest-video");
+    if (!player) return;   // no player on this page: links go to YouTube as normal
+
+    document.addEventListener("click", function (e) {
+      var card = e.target.closest("[data-video-id]");
+      if (!card) return;
+
+      // Let ctrl/cmd/middle-click still open YouTube in a new tab
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+
+      var id = card.getAttribute("data-video-id");
+      var v = VIDEOS.filter(function (x) { return x.id === id; })[0];
+      if (!v) return;      // unknown id: fall through to the YouTube link
+
+      e.preventDefault();
+      renderLatest(player, v, true);
+
+      // On a phone the player sits above the list, so bring it into view
+      var top = player.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({
+        top: top,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto" : "smooth"
+      });
+    });
+  }
+
   function init() {
     var latest = document.getElementById("latest-video");
     var rail = document.getElementById("recent-rail");
@@ -201,6 +240,7 @@ var YT_CHANNEL_URL = _cfg.YOUTUBE_CHANNEL_URL || "https://youtube.com/@omegalivi
     fetchVideos(grid ? 24 : 12)
       .then(function (items) {
         if (!items.length) { fallback("No uploads found yet."); return; }
+        VIDEOS = items;
 
         if (latest) renderLatest(latest, items[0]);
 
@@ -215,6 +255,9 @@ var YT_CHANNEL_URL = _cfg.YOUTUBE_CHANNEL_URL || "https://youtube.com/@omegalivi
           var empty = document.getElementById("sermon-empty");
           if (empty) empty.style.display = "none";
         }
+
+        wireClickToPlay();
+        if (latest) renderLatest(latest, items[0], false);
       })
       .catch(function (err) {
         if (err && err.message === "no-key") {

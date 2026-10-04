@@ -1271,3 +1271,71 @@ form button { cursor: pointer; font-family: var(--font-body); }
   .site-header, .wa-float, .hero-controls, .theme-toggle, .rail { display: none !important; }
   body { background: #fff; color: #000; }
 }
+
+/* ---------- 28. Click-to-play cards ---------- */
+
+.rail-card { position: relative; }
+
+.rail-card.is-playing,
+.item-thumb.is-playing {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.rail-card.is-playing .rc-date::after,
+.item-thumb.is-playing + .item-body .item-meta::after {
+  content: " \00b7 now playing";
+  color: var(--accent);
+}
+
+/* Play triangle over every clickable thumbnail */
+
+.rail-thumb, .item-thumb { position: relative; }
+
+.rail-card .rail-thumb::after,
+a.item-thumb .play-badge {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  background: rgba(11, 10, 8, 0.62);
+  border: 1px solid rgba(247, 243, 234, 0.8);
+  transition: background-color 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+
+.rail-card .rail-thumb::before,
+a.item-thumb .play-badge::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  margin: -7px 0 0 -4px;
+  border-style: solid;
+  border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent var(--c-parchment);
+  pointer-events: none;
+}
+
+a.item-thumb .play-badge::before { margin: -7px 0 0 -4px; }
+
+.rail-card:hover .rail-thumb::after,
+a.item-thumb:hover .play-badge {
+  background: var(--accent);
+  transform: scale(1.08);
+}
+
+.rail-card:hover .rail-thumb::before,
+a.item-thumb:hover .play-badge::before {
+  border-left-color: var(--c-ink);
+}
+
+a.item-thumb { display: block; cursor: pointer; }
+a.item-thumb img { transition: transform 400ms ease; }
+a.item-thumb:hover img { transform: scale(1.04); }
