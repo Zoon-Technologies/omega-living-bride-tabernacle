@@ -1,5 +1,5 @@
 /* ============================================================
-   Hero carousel — renders from HERO_SLIDES (js/hero-slides.js)
+   Hero carousel: renders from HERO_SLIDES (js/hero-slides.js)
    Auto-advance, pause on hover/focus, arrows, dots, swipe,
    keyboard, and full respect for reduced-motion preferences.
    ============================================================ */

@@ -1,5 +1,5 @@
 /* ============================================================
-   YOUTUBE — pulls the church's latest uploads automatically
+   YOUTUBE: pulls the church's latest uploads automatically
    ------------------------------------------------------------
    Once the key below is filled in, the website updates itself:
    upload to YouTube as normal and the new message appears here.
@@ -21,7 +21,7 @@
    The free allowance is 10,000 units a day. Each page view costs 1.
    ============================================================ */
 
-/*  THE KEY ITSELF LIVES IN  js/config.js  — put it there, not here.  */
+/*  THE KEY ITSELF LIVES IN  js/config.js  (put it there, not here).  */
 
 var _cfg = window.OLBT_CONFIG || {};
 var YT_API_KEY = (_cfg.YOUTUBE_API_KEY || "").trim();

@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- ============================================================
-       SEO — page title, Google search snippet, and the one true
+       SEO: page title, Google search snippet, and the one true
        address of this page. Edit these in the content_*.py files.
        ============================================================ -->
-  <title>Give — Omega Living Bride Tabernacle, Effurun</title>
+  <title>Give | Omega Living Bride Tabernacle, Effurun</title>
   <meta name="description" content="Supporting the work of Omega Living Bride Tabernacle in Effurun, Delta State. Bank transfer details and giving information." />
   <link rel="canonical" href="https://omegalivingbride.com/give.html" />
 
-  <!-- SOCIAL SHARING — what appears when the link is pasted into
+  <!-- SOCIAL SHARING: what appears when the link is pasted into
        WhatsApp, Facebook or X. Image is assets/img/og-image.jpg -->
   <meta property="og:site_name" content="Omega Living Bride Tabernacle" />
-  <meta property="og:title" content="Give — Omega Living Bride Tabernacle, Effurun" />
+  <meta property="og:title" content="Give | Omega Living Bride Tabernacle, Effurun" />
   <meta property="og:description" content="Supporting the work of Omega Living Bride Tabernacle in Effurun, Delta State. Bank transfer details and giving information." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://omegalivingbride.com/give.html" />
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#12100E" />
 
-  <!-- ICONS — browser tab and phone home screen -->
+  <!-- ICONS: browser tab and phone home screen -->
   <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" />
   <link rel="icon" href="/assets/img/favicon-64.png" sizes="64x64" />
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
@@ -35,19 +35,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 
-  <!-- THEME — sets light or dark before the page paints, so there is
+  <!-- THEME: sets light or dark before the page paints, so there is
        no flash of the wrong colours. -->
   <script>(function(){try{var m=localStorage.getItem('olbt-theme');if(!m)m=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',m);document.documentElement.classList.add('js');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 
   <!-- ============================================================
        GOOGLE ANALYTICS + YOUTUBE
        The measurement ID and the YouTube key live in js/config.js.
-       That file loads the Google tag (gtag.js) for you — there is no
+       That file loads the Google tag (gtag.js) for you. There is no
        separate Google snippet pasted into these pages, and nothing
        here to edit. Change the keys in js/config.js only.
        ============================================================ -->
   <script src="/js/config.js"></script>
-  <!-- SCHEMA 1 of 2: Church — who we are, where, and when we meet -->
+  <!-- SCHEMA 1 of 2: Church: who we are, where, and when we meet -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -102,7 +102,7 @@
 }
   </script>
 
-  <!-- SCHEMA 2 of 2: Breadcrumb — the trail shown under the search result -->
+  <!-- SCHEMA 2 of 2: Breadcrumb: the trail shown under the search result -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -180,16 +180,36 @@
         <blockquote>Every man according as he purposeth in his heart, so let him give; not grudgingly, or of necessity: for God loveth a cheerful giver.<cite>2 Corinthians 9:7</cite></blockquote>
 
         <h2>Bank transfer</h2>
-        <!-- ****************************************************************
-             PLACEHOLDER - bank details to be supplied IN WRITING by the
-             pastor or church treasurer before this page goes live.
-             Until they are filled in, this page should stay out of the menu.
-             **************************************************************** -->
-        <table class="times-table">
-          <tr><th>Account name</th><td>[Church account name]</td></tr>
-          <tr><th>Bank</th><td>[Bank name]</td></tr>
-          <tr><th>Account number</th><td>[Account number]</td></tr>
-        </table>
+        <p>Tap any line below to copy it.</p>
+
+        <ul class="bank-details">
+          <li>
+            <span class="bd-label">Account name</span>
+            <span class="bd-value" id="bd-name">Omega Living Bride Tabernacle</span>
+            <button type="button" class="copy-btn" data-copy="Omega Living Bride Tabernacle"
+                    aria-label="Copy the account name">Copy</button>
+          </li>
+          <li>
+            <span class="bd-label">Bank</span>
+            <span class="bd-value">Guaranty Trust Bank (GTB)</span>
+            <button type="button" class="copy-btn" data-copy="Guaranty Trust Bank (GTB)"
+                    aria-label="Copy the bank name">Copy</button>
+          </li>
+          <li>
+            <span class="bd-label">Account number</span>
+            <span class="bd-value bd-account">0243683348</span>
+            <button type="button" class="copy-btn" data-copy="0243683348"
+                    aria-label="Copy the account number">Copy</button>
+          </li>
+        </ul>
+
+        <p class="bank-actions">
+          <button type="button" class="btn btn-gold copy-btn"
+                  data-copy="Omega Living Bride Tabernacle&#10;Guaranty Trust Bank (GTB)&#10;0243683348"
+                  aria-label="Copy all three bank details together">Copy all details</button>
+        </p>
+
+        <p class="bank-note">Always check the account name reads <strong>Omega Living Bride Tabernacle</strong> before you send anything. If a message or flyer gives you different details for this church, confirm with us first on <a href="https://wa.me/2347045348482" rel="noopener">WhatsApp</a> or by <a href="/contact.html">writing to us</a>.</p>
 
         <h2>In person</h2>
         <p>Offerings may also be given during any service at the Tabernacle in Effurun.</p>
@@ -197,6 +217,52 @@
         <p style="margin-top:2rem; font-size:0.94rem; color:var(--fg-soft);">If you have a question about giving, or wish to designate a gift for a particular purpose, please <a href="/contact.html">write to us</a>.</p>
       </div>
     </section>
+
+    <script>
+    (function () {
+      function flash(btn, text) {
+        var original = btn.getAttribute("data-label") || btn.textContent;
+        btn.setAttribute("data-label", original);
+        btn.textContent = text;
+        btn.classList.add("is-copied");
+        clearTimeout(btn._t);
+        btn._t = setTimeout(function () {
+          btn.textContent = btn.getAttribute("data-label");
+          btn.classList.remove("is-copied");
+        }, 1800);
+      }
+
+      function legacyCopy(value) {
+        var box = document.createElement("textarea");
+        box.value = value;
+        box.setAttribute("readonly", "");
+        box.style.position = "fixed";
+        box.style.opacity = "0";
+        document.body.appendChild(box);
+        box.select();
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+        document.body.removeChild(box);
+        return ok;
+      }
+
+      document.addEventListener("click", function (e) {
+        var btn = e.target.closest(".copy-btn");
+        if (!btn) return;
+        var value = btn.getAttribute("data-copy");
+        if (!value) return;
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(value).then(
+            function () { flash(btn, "Copied"); },
+            function () { flash(btn, legacyCopy(value) ? "Copied" : "Press Ctrl+C"); }
+          );
+        } else {
+          flash(btn, legacyCopy(value) ? "Copied" : "Press Ctrl+C");
+        }
+      });
+    })();
+    </script>
 </main>
 
   <footer class="site-footer">
@@ -235,7 +301,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; <span data-year>2026</span> Omega Living Bride Tabernacle, Effurun, Delta State.</span>
-      <span>&ldquo;Even so, come, Lord Jesus.&rdquo; &mdash; Revelation 22:20</span>
+      <span>&ldquo;Even so, come, Lord Jesus.&rdquo; &middot; Revelation 22:20</span>
     </div>
   </footer>
 

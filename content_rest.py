@@ -9,7 +9,7 @@ visit = """
     <section class="page-hero">
       <p class="eyebrow">Plan your visit</p>
       <h1>Your first time with us</h1>
-      <p>Everything you need to know before you walk through the door in Effurun &mdash; no surprises.</p>
+      <p>Everything you need to know before you walk through the door in Effurun. No surprises.</p>
     </section>
 
     <section class="section">
@@ -58,7 +58,7 @@ visit = """
         </div>
 
         <h2>What happens in a service</h2>
-        <p>We begin with singing and prayer. There is a time of worship, then the Word is preached &mdash; usually for an hour or more, because the teaching is the heart of what we do. We close in prayer. A Sunday service normally runs until about 12:30.</p>
+        <p>We begin with singing and prayer. There is a time of worship, then the Word is preached, usually for an hour or more, because the teaching is the heart of what we do. We close in prayer. A Sunday service normally runs until about 12:30.</p>
 
         <ul class="visit-list">
           <li>
@@ -79,7 +79,7 @@ visit = """
           </li>
           <li>
             <h3>Do I need to bring anything?</h3>
-            <p>Bring your Bible if you have one. If you don't, that is no obstacle &mdash; come as you are.</p>
+            <p>Bring your Bible if you have one. If you don't, that is no obstacle. Come as you are.</p>
           </li>
           <li>
             <h3>What if I am not a believer?</h3>
@@ -93,7 +93,7 @@ visit = """
 """ % dict(map=MAPS_EMBED, maps=MAPS_LINK, wa=WHATSAPP, phone=PHONE_DISPLAY, phone_e164=PHONE_E164)
 
 page("visit.html",
-     "Plan Your Visit — Omega Living Bride Tabernacle, Effurun",
+     "Plan Your Visit | Omega Living Bride Tabernacle, Effurun",
      "Service times, address and what to expect on your first visit to Omega Living Bride "
      "Tabernacle, 11 Ejoyokah Street, Effurun, Delta State. Sunday 9:00 AM.",
      "/visit.html", visit, label="Visit")
@@ -105,7 +105,7 @@ sermons = """
     <section class="page-hero">
       <p class="eyebrow">The Word</p>
       <h1>Sermons</h1>
-      <p>Messages preached at Omega Living Bride Tabernacle in Effurun &mdash; archived so you can hear the Word wherever you are.</p>
+      <p>Messages preached at Omega Living Bride Tabernacle in Effurun, archived so you can hear the Word wherever you are.</p>
     </section>
 
     <section class="section section-dark on-dark center">
@@ -139,7 +139,7 @@ sermons = """
 """ % dict(yt=YOUTUBE)
 
 page("sermons.html",
-     "Sermons — Omega Living Bride Tabernacle, Effurun",
+     "Sermons | Omega Living Bride Tabernacle, Effurun",
      "Sermon archive from Omega Living Bride Tabernacle, Effurun. Messages on the "
      "Seven Seals, the Seven Church Ages, Revelation and the end-time Message.",
      "/sermons.html", sermons, label="Sermons",
@@ -152,7 +152,7 @@ audio = """
     <section class="page-hero">
       <p class="eyebrow">Listen</p>
       <h1>Audio sermons</h1>
-      <p>Older messages and recordings for listening or download &mdash; light on data, so you can take the Word with you.</p>
+      <p>Older messages and recordings for listening or download. They are light on data, so you can take the Word with you.</p>
     </section>
 
     <section class="section">
@@ -174,7 +174,7 @@ audio = """
 """
 
 page("audio.html",
-     "Audio Sermons — Omega Living Bride Tabernacle, Effurun",
+     "Audio Sermons | Omega Living Bride Tabernacle, Effurun",
      "Listen to or download audio sermons from Omega Living Bride Tabernacle, Effurun, "
      "Effurun, Delta State. Messages on Revelation, the Seven Seals and the end-time Message.",
      "/audio.html", audio, label="Audio sermons",
@@ -204,7 +204,7 @@ albums = """
 """
 
 page("albums.html",
-     "Photo Albums — Omega Living Bride Tabernacle, Effurun",
+     "Photo Albums | Omega Living Bride Tabernacle, Effurun",
      "Photographs from conferences, services and gatherings at Omega Living Bride "
      "Tabernacle, Effurun, Delta State.",
      "/albums.html", albums, label="Photo albums",
@@ -285,7 +285,7 @@ contact = """
             <ul class="visit-list">
               <li>
                 <h3>WhatsApp</h3>
-                <p><a href="%(wa)s" rel="noopener">Chat with us</a> &mdash; usually the fastest reply.</p>
+                <p><a href="%(wa)s" rel="noopener">Chat with us</a>. Usually the fastest reply.</p>
               </li>
               <li>
                 <h3>Phone</h3>
@@ -337,7 +337,7 @@ contact = """
 """ % dict(email=EMAIL, wa=WHATSAPP, yt=YOUTUBE, phone=PHONE_DISPLAY, phone_e164=PHONE_E164)
 
 page("contact.html",
-     "Contact — Omega Living Bride Tabernacle, Effurun",
+     "Contact | Omega Living Bride Tabernacle, Effurun",
      "Contact Omega Living Bride Tabernacle in Effurun, Delta State. Send a prayer "
      "request, ask a question about the Bible, or plan your visit.",
      "/contact.html", contact, label="Contact")
@@ -348,7 +348,7 @@ page("contact.html",
 thanks = """
     <section class="page-hero">
       <p class="eyebrow">Message sent</p>
-      <h1>Thank you &mdash; we have your message</h1>
+      <h1>Thank you, we have your message</h1>
       <p>It has gone to the church inbox. Someone will read it and reply.</p>
     </section>
 
@@ -374,7 +374,7 @@ thanks = """
     </section>
 """ % dict(wa=WHATSAPP)
 
-page("thank-you.html", "Message sent — Omega Living Bride Tabernacle",
+page("thank-you.html", "Message sent | Omega Living Bride Tabernacle",
      "Your message has been sent to Omega Living Bride Tabernacle, Effurun.",
      "/thank-you.html", thanks, label="Message sent")
 
@@ -401,5 +401,5 @@ notfound = """
     </section>
 """
 
-page("404.html", "Page not found — Omega Living Bride Tabernacle",
+page("404.html", "Page not found | Omega Living Bride Tabernacle",
      "This page could not be found.", "/404.html", notfound, label="Not found")

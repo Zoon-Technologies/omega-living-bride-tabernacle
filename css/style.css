@@ -1,5 +1,5 @@
 /* ============================================================
-   Omega Living Bride Tabernacle — style.css
+   Omega Living Bride Tabernacle: style.css
    Warri / Effurun, Delta State, Nigeria
 
    Palette : parchment / warm ink / lampstand gold / oxblood
@@ -30,7 +30,7 @@
   --radius: 3px;
 }
 
-/* ---------- 2. Semantic tokens — light theme ---------- */
+/* ---------- 2. Semantic tokens: light theme ---------- */
 
 :root,
 [data-theme="light"] {
@@ -59,7 +59,7 @@
   color-scheme: light;
 }
 
-/* ---------- 3. Semantic tokens — dark theme ---------- */
+/* ---------- 3. Semantic tokens: dark theme ---------- */
 
 [data-theme="dark"] {
   --bg:            #15120F;
@@ -1366,3 +1366,110 @@ a.item-thumb:hover img { transform: scale(1.04); }
 }
 
 .back-to-latest:hover { background: var(--accent); color: var(--c-ink); }
+
+/* ---------- 30. Bank details with copy buttons ---------- */
+
+.bank-details {
+  list-style: none;
+  margin: 1.5rem 0 1.75rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-soft);
+  max-width: var(--measure);
+}
+
+.bank-details li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.35rem 1rem;
+  padding: 1rem 1.15rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.bank-details li:last-child { border-bottom: 0; }
+
+.bd-label {
+  grid-column: 1;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.bd-value {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 1.08rem;
+  color: var(--fg-heading);
+  word-break: break-word;
+}
+
+.bd-account {
+  font-family: var(--font-mono, "Courier New", monospace);
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+}
+
+.copy-btn {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  min-width: 5.4rem;
+  padding: 0.5rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent-text);
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.copy-btn:hover { background: var(--accent); color: var(--c-ink); border-color: var(--accent); }
+
+.copy-btn.is-copied {
+  background: var(--accent);
+  color: var(--c-ink);
+  border-color: var(--accent);
+}
+
+.bank-actions { margin-top: 0; }
+
+.bank-actions .copy-btn {
+  grid-column: auto;
+  grid-row: auto;
+  min-width: 0;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.7rem;
+  background: var(--accent);
+  color: var(--c-ink);
+  border-color: var(--accent);
+}
+
+.bank-actions .copy-btn:hover {
+  background: var(--c-gold-deep);
+  border-color: var(--c-gold-deep);
+  color: var(--c-parchment);
+}
+
+.bank-note {
+  font-size: 0.92rem;
+  color: var(--fg-soft);
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  margin-top: 1.75rem;
+}
+
+.bank-note strong { color: var(--fg-heading); }
+
+@media (max-width: 460px) {
+  .bank-details li { padding: 0.9rem 1rem; }
+  .bd-account { font-size: 1.2rem; }
+  .copy-btn { min-width: 4.6rem; padding: 0.45rem 0.7rem; }
+}

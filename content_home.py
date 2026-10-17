@@ -17,7 +17,7 @@ TIMES_BAR = """
 # ------------------------------------------------------------------ HOME
 
 home = """
-    <!-- ============ HERO CAROUSEL — edit js/hero-slides.js ============ -->
+    <!-- ============ HERO CAROUSEL: edit js/hero-slides.js ============ -->
     <section class="hero" id="hero" aria-roledescription="carousel"
              aria-label="Omega Living Bride Tabernacle highlights" tabindex="-1">
       <div class="hero-slides" aria-hidden="true"></div>
@@ -48,7 +48,7 @@ home = """
         <p class="eyebrow">Who we are</p>
         <h2>A Word-centred assembly in Effurun</h2>
         <p>We are a family of believers in Effurun who hold the Bible to be the complete, infallible Word of God, and who believe that God has sent a prophetic Message in this last age to restore His people to that Word and make ready a Bride for the coming of Jesus Christ.</p>
-        <p>Whether you have walked with the Lord for decades, are searching honestly for truth, or are simply curious &mdash; you are welcome here.</p>
+        <p>Whether you have walked with the Lord for decades, are searching honestly for truth, or are simply curious, you are welcome here.</p>
         <a class="btn btn-outline" href="/about.html">Read what we believe</a>
       </div>
       <div class="omega-divider" aria-hidden="true"><span>&Omega;</span></div>
@@ -79,7 +79,7 @@ home = """
             &ldquo;The Word of God is not a tradition we inherited and keep out of habit.
             It is living, and it is able to find a man where he is and change him.
             That is why we open the Bible here without hurry.
-            If you are searching, come and sit with us &mdash; bring your questions,
+            If you are searching, come and sit with us. Bring your questions,
             and let the Scriptures answer them.&rdquo;
             <span class="pastor-sig">
               <strong>Timothy Awowede</strong>
@@ -137,7 +137,7 @@ home = """
         <div class="card-grid">
           <article class="card reveal">
             <h3>Who was William Branham?</h3>
-            <p>Why we believe God sent a prophet in this generation &mdash; and what the Scriptures say about it.</p>
+            <p>Why we believe God sent a prophet in this generation, and what the Scriptures say about it.</p>
             <a href="/teachings/who-was-william-branham.html">Read the answer</a>
           </article>
 
@@ -195,7 +195,7 @@ home = """
 """ % dict(map=MAPS_EMBED)
 
 page("index.html",
-     "Omega Living Bride Tabernacle — Church in Effurun, Delta State",
+     "Omega Living Bride Tabernacle | Church in Effurun, Delta State",
      "Omega Living Bride Tabernacle is an end-time Message assembly in Effurun, "
      "Delta State, Nigeria. Sunday service 9:00 AM, midweek Wednesday and Friday 5:00 PM. "
      "Sermons, teachings and everything you need for a first visit.",

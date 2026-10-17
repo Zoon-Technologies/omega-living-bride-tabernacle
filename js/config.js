@@ -1,10 +1,10 @@
 /* ============================================================
-   OMEGA LIVING BRIDE TABERNACLE — SETTINGS
+   OMEGA LIVING BRIDE TABERNACLE: SETTINGS
    ------------------------------------------------------------
    The two keys the website needs. Paste them between the
    quotation marks, save, then push to GitHub. Nothing else.
 
-   Leave either one empty and that feature simply stays off —
+   Leave either one empty and that feature simply stays off.
    nothing breaks, and no broken code is sent to visitors.
    ============================================================ */
 
@@ -36,7 +36,7 @@ window.OLBT_CONFIG = {
 (function (cfg) {
   "use strict";
   var id = (cfg.GA4_ID || "").trim();
-  if (!/^G-[A-Z0-9]+$/i.test(id)) return;   // not set, or mistyped — stay off
+  if (!/^G-[A-Z0-9]+$/i.test(id)) return;   // not set, or mistyped, so stay off
 
   var s = document.createElement("script");
   s.async = true;

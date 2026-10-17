@@ -4,7 +4,7 @@
    Add a sermon by copying one block below and pasting it at the
    TOP of the list. Newest first.
 
-   WHERE TO PUT THE MP3 FILES  — please read this once
+   WHERE TO PUT THE MP3 FILES: please read this once
    ---------------------------------------------------
    Do NOT put mp3 files in this website folder. Audio is large,
    and the hosting plan is metered: one popular sermon could take

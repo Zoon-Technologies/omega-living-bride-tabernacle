@@ -1,5 +1,5 @@
 /* ============================================================
-   Omega Living Bride Tabernacle — main.js
+   Omega Living Bride Tabernacle: main.js
    Theme toggle · navigation · submenus · scroll reveal
    ============================================================ */
 
@@ -123,7 +123,7 @@
       { threshold: 0.15 }
     );
     revealItems.forEach(function (el) { observer.observe(el); });
-    // Safety net — nothing stays invisible if the observer never fires.
+    // Safety net. Nothing stays invisible if the observer never fires.
     setTimeout(function () {
       revealItems.forEach(function (el) { el.classList.add("visible"); });
     }, 2500);

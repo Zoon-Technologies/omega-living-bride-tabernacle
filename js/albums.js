@@ -101,7 +101,7 @@ const PHOTO_ALBUMS = [
     lbImg.src = p.src;
     lbImg.alt = p.caption || album.title;
     lbCap.textContent =
-      (p.caption ? p.caption + " — " : "") +
+      (p.caption ? p.caption + " · " : "") +
       album.title + " (" + (pos + 1) + " of " + album.photos.length + ")";
   }
 

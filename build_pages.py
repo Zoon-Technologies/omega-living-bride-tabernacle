@@ -9,7 +9,7 @@ every page is rewritten. Page CONTENT lives in content_pages.py.
 """
 
 # ------------------------------------------------------------------
-# Site-wide settings — the only block most edits need
+# Site-wide settings: the only block most edits need
 # ------------------------------------------------------------------
 
 SITE_URL = "https://omegalivingbride.com"
@@ -27,7 +27,7 @@ REGION = "Delta State"
 COUNTRY = "Nigeria"
 
 # What Google is told about the area the church serves. This is reach, not the
-# postal address — the address shown to visitors is Effurun everywhere.
+# postal address. The address shown to visitors is Effurun everywhere.
 AREA_SERVED = "Effurun and the greater Warri area, Delta State, Nigeria"
 
 MAPS_LINK = "https://maps.app.goo.gl/XYi2mtmWdiXzW3t3A"
@@ -153,8 +153,8 @@ def head(title, desc, path, label, extra_schema=""):
         blocks.append(crumbs)
     if extra_schema:
         blocks.append(extra_schema)
-    labels = ["Church — who we are, where, and when we meet",
-              "Breadcrumb — the trail shown under the search result",
+    labels = ["Church: who we are, where, and when we meet",
+              "Breadcrumb: the trail shown under the search result",
               "Page-specific"]
     ld = "\n\n".join(
         '  <!-- SCHEMA %d of %d: %s -->\n  <script type="application/ld+json">\n%s\n  </script>'
@@ -168,14 +168,14 @@ def head(title, desc, path, label, extra_schema=""):
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- ============================================================
-       SEO — page title, Google search snippet, and the one true
+       SEO: page title, Google search snippet, and the one true
        address of this page. Edit these in the content_*.py files.
        ============================================================ -->
   <title>%(title)s</title>
   <meta name="description" content="%(desc)s" />
   <link rel="canonical" href="%(canonical)s" />
 
-  <!-- SOCIAL SHARING — what appears when the link is pasted into
+  <!-- SOCIAL SHARING: what appears when the link is pasted into
        WhatsApp, Facebook or X. Image is assets/img/og-image.jpg -->
   <meta property="og:site_name" content="%(site)s" />
   <meta property="og:title" content="%(title)s" />
@@ -188,7 +188,7 @@ def head(title, desc, path, label, extra_schema=""):
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#12100E" />
 
-  <!-- ICONS — browser tab and phone home screen -->
+  <!-- ICONS: browser tab and phone home screen -->
   <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" />
   <link rel="icon" href="/assets/img/favicon-64.png" sizes="64x64" />
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
@@ -199,14 +199,14 @@ def head(title, desc, path, label, extra_schema=""):
   <link href="%(fonts)s" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 
-  <!-- THEME — sets light or dark before the page paints, so there is
+  <!-- THEME: sets light or dark before the page paints, so there is
        no flash of the wrong colours. -->
   %(theme)s
 
   <!-- ============================================================
        GOOGLE ANALYTICS + YOUTUBE
        The measurement ID and the YouTube key live in js/config.js.
-       That file loads the Google tag (gtag.js) for you — there is no
+       That file loads the Google tag (gtag.js) for you. There is no
        separate Google snippet pasted into these pages, and nothing
        here to edit. Change the keys in js/config.js only.
        ============================================================ -->
@@ -320,7 +320,7 @@ def footer(scripts=""):
     </div>
     <div class="footer-bottom">
       <span>&copy; <span data-year>2026</span> %(site)s, %(town)s, %(region)s.</span>
-      <span>&ldquo;Even so, come, Lord Jesus.&rdquo; &mdash; Revelation 22:20</span>
+      <span>&ldquo;Even so, come, Lord Jesus.&rdquo; &middot; Revelation 22:20</span>
     </div>
   </footer>
 
@@ -344,6 +344,6 @@ def page(filename, title, desc, path, body, label=None, scripts="", extra_schema
     if d:
         os.makedirs(d, exist_ok=True)
     with open(filename, "w", encoding="utf-8") as f:
-        f.write(head(title, desc, path, label or title.split(" — ")[0], extra_schema)
+        f.write(head(title, desc, path, label or title.split(" | ")[0], extra_schema)
                 + body + footer(scripts))
     print("wrote", filename)
